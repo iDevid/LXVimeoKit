@@ -7,3 +7,16 @@
 //
 
 import UIKit
+
+open class LXVimeoPlayerController: UIViewController {
+
+    open var playerView:LXVimeoPlayerView! {
+        return view as? LXVimeoPlayerView
+    }
+    override open func loadView() {
+        self.view = LXVimeoPlayerView()
+    }
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
