@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "LXVimeoKit"
-  s.version      = "0.1"
-  s.summary      = ""
+  s.version      = "0.2"
+  s.summary      = "Vimeo web player for iOS. It's wrapper of WKWebView"
   s.description  = <<-DESC
     Vimeo web player for iOS.
   DESC
