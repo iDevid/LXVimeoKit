@@ -9,10 +9,16 @@
 import UIKit
 import WebKit
 
+public protocol LXVimeoPlayerViewDelegate: class {
+    func vimeoPlayer(_ vimeoPlayer:LXVimeoPlayerView, on event:LXVimeoPlayerView.PlayerEvent)
+}
+
 open class LXVimeoPlayerView: UIView {
     open private(set) var webView:WKWebView!
     
     open private(set) var aspectRatio:CGFloat = 0.5625, resolution:CGSize = .zero
+    
+    weak open var delegate:LXVimeoPlayerViewDelegate?
     
     public init() {
         super.init(frame: .zero)
@@ -75,7 +81,7 @@ extension LXVimeoPlayerView: WKScriptMessageHandler {
         case .play:break
         case .ended:break
         }
-        
+        delegate?.vimeoPlayer(self, on: event)
     }
 }
 
