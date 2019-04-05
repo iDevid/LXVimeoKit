@@ -1,6 +1,7 @@
 # LXVimeoKit
 
 ## Features
+- [x] Support private video
 
 ### Cocoapods
 
