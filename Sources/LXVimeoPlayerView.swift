@@ -9,17 +9,17 @@
 import UIKit
 import WebKit
 
-class LXVimeoPlayerView: UIView {
-    private(set) var webView:WKWebView!
+open class LXVimeoPlayerView: UIView {
+    open private(set) var webView:WKWebView!
     
-    private(set) var aspectRatio:CGFloat = 0.5625, resolution:CGSize = .zero
+    open private(set) var aspectRatio:CGFloat = 0.5625, resolution:CGSize = .zero
     
-    init() {
+    public init() {
         super.init(frame: .zero)
         initView()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initView()
     }
@@ -43,18 +43,18 @@ class LXVimeoPlayerView: UIView {
         )
     }
     
-    func load(url:String) {
+    open func load(url:String) {
         webView.loadHTMLString(LXVimeoPlayerView.getVimeoWebPlayerFor(video: url), baseURL: nil)
     }
     
-    func play() {
+    open func play() {
         let playScr = """
             play();
         """
         webView?.evaluateJavaScript(playScr)
     }
     
-    func pause() {
+    open func pause() {
         let pauseScr = """
            pause();
         """
@@ -63,7 +63,7 @@ class LXVimeoPlayerView: UIView {
 }
 
 extension LXVimeoPlayerView: WKScriptMessageHandler {
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+    public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         guard let event = PlayerEvent(rawValue: message.name) else { return }
         
         switch event {
@@ -79,12 +79,12 @@ extension LXVimeoPlayerView: WKScriptMessageHandler {
     }
 }
 
-extension LXVimeoPlayerView {
-    enum PlayerEvent: String, CaseIterable {
+public extension LXVimeoPlayerView {
+    public enum PlayerEvent: String, CaseIterable {
         case play, ended, dimensions
     }
     
-    static func getVimeoWebPlayerFor(video url:String) -> String {
+    public static func getVimeoWebPlayerFor(video url:String) -> String {
         return """
         <!DOCTYPE html>
         <html>
