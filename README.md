@@ -1,4 +1,5 @@
 # LXVimeoKit
+It wrapper of `WkWebView` with javascript bridge.
 
 ## Features
 - [x] Support private video
