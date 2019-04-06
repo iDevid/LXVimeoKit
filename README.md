@@ -15,6 +15,7 @@ pod 'LXVimeoKit', :git => 'https://github.com/satishVekariya/LXVimeoKit.git'
 - `0.2` `swift 4.2`
 
 ### Usage
+⚠️ **Warning:** Project is InDevelopment state so it's not suitable for production use.
 
 1. Dragge `UIView` to Storyboard or .XIB and change custom class to `LXVimeoPlayerView`
 
