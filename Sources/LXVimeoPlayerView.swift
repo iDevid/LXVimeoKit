@@ -86,11 +86,13 @@ extension LXVimeoPlayerView: WKScriptMessageHandler {
 }
 
 public extension LXVimeoPlayerView {
-    public enum PlayerEvent: String, CaseIterable {
+
+    enum PlayerEvent: String, CaseIterable {
         case play, ended, dimensions
     }
     
-    public static func getVimeoWebPlayerFor(video url:String) -> String {
+
+    static func getVimeoWebPlayerFor(video url:String) -> String {
         return """
         <!DOCTYPE html>
         <html>
